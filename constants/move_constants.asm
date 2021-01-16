@@ -523,3 +523,8 @@ const_value = -$16 ;fix if more negative values are added
 	const BATTLEANIM_WOBBLE
 	const BATTLEANIM_SHAKE
 	const BATTLEANIM_HIT_CONFUSION
+
+	const_def
+	const CAT_PHYSICAL
+	const CAT_SPECIAL
+	const CAT_STATUS
