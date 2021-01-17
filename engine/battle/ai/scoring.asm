@@ -192,6 +192,7 @@ AI_Types:
 	push de
 	push bc
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	ld d, a
 	ld hl, wEnemyMonMoves
 	ld b, wEnemyMonMovesEnd - wEnemyMonMoves + 1
@@ -206,6 +207,7 @@ AI_Types:
 
 	call AIGetEnemyMove
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	cp d
 	jr z, .checkmove2
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
@@ -1115,11 +1117,34 @@ AI_Smart_SpDefenseUp2:
 	cp $9
 	ret nc
 
-	ld a, [wBattleMonType1]
-	cp SPECIAL
-	jr nc, .asm_38b09
-	ld a, [wBattleMonType2]
-	cp SPECIAL
+;	ld a, [wBattleMonType1]
+;	cp SPECIAL
+;	jr nc, .asm_38b09
+;	ld a, [wBattleMonType2]
+;	cp SPECIAL
+;	ret c
+	push hl
+; Get the the player's Pokemon's base Attack
+	ld a, [wBattleMonSpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld a, BANK(BaseData)
+	ld hl, BaseData
+	call LoadIndirectPointer
+	ld bc, BASE_ATK
+	add hl, bc
+	push af
+	call GetFarByte
+	ld d, a
+	pop af
+; Get the player's Pokemon's base Special Attack
+	ld bc, BASE_SAT - BASE_ATK
+	add hl, bc
+	call GetFarByte
+	pop hl
+; If base Attack is greater, don't encourage this move
+	cp d
 	ret c
 
 .asm_38b09
@@ -1413,6 +1438,7 @@ AI_Smart_Encore:
 
 	push hl
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	ld hl, wEnemyMonType1
 	predef CheckTypeMatchup
 
@@ -1839,11 +1865,6 @@ AI_Smart_Curse:
 	ld a, [wBattleMonType1]
 	cp GHOST
 	jr z, .asm_38e92
-	cp SPECIAL
-	ret nc
-	ld a, [wBattleMonType2]
-	cp SPECIAL
-	ret nc
 	call AI_80_20
 	ret c
 	dec [hl]
