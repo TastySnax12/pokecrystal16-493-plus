@@ -144,6 +144,10 @@ CheckHeadbuttTreeTile::
 	cp COLL_HEADBUTT_TREE_1D
 	ret
 
+CheckRockClimbTile::
+	cp COLL_ROCK_CLIMB
+	ret
+
 CheckCounterTile::
 	cp COLL_COUNTER
 	ret z
