@@ -115,6 +115,10 @@ COLL_DOWN_RIGHT_BUOY   EQU $c4 ; unused
 COLL_DOWN_LEFT_BUOY    EQU $c5 ; unused
 COLL_UP_RIGHT_BUOY     EQU $c6 ; unused
 COLL_UP_LEFT_BUOY      EQU $c7 ; unused
+COLL_BRIDGE_H_LEFT     EQU $e0
+COLL_BRIDGE_H_RIGHT    EQU $e1
+COLL_BRIDGE_H_UP       EQU $e2
+COLL_BRIDGE_H_DOWN     EQU $e3
 COLL_FF                EQU $ff ; garbage
 
 ; collision data type nybbles
@@ -128,3 +132,4 @@ HI_NYBBLE_WARPS      EQU $70
 HI_NYBBLE_LEDGES     EQU $a0
 HI_NYBBLE_SIDE_WALLS EQU $b0
 HI_NYBBLE_SIDE_BUOYS EQU $c0
+HI_NYBBLE_BRIDGE     EQU $e0
