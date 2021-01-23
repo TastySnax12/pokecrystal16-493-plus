@@ -116,7 +116,7 @@ ChooseMonToLearnTMHM_NoRefresh:
 	pop hl
 	jr .loopback
 
-TeachTMHM:
+TeachTMHM::
 	predef CanLearnTMHMMove
 
 	push bc

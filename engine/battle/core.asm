@@ -840,21 +840,21 @@ GetMovePriority:
 ; Return the priority (0-3) of move a.
 
 	ld b, a
-
-	; Vital Throw goes last.
-	call GetMoveIndexFromID
-	ld a, h
-	if HIGH(VITAL_THROW)
-		cp HIGH(VITAL_THROW)
-	else
-		and a
-	endc
-	jr nz, .not_vital_throw
-	ld a, l
-	sub LOW(VITAL_THROW)
-	ret z
-
-.not_vital_throw
+;
+;	; Vital Throw goes last.
+;	call GetMoveIndexFromID
+;	ld a, h
+;	if HIGH(VITAL_THROW)
+;		cp HIGH(VITAL_THROW)
+;	else
+;		and a
+;	endc
+;	jr nz, .not_vital_throw
+;	ld a, l
+;	sub LOW(VITAL_THROW)
+;	ret z
+;
+;.not_vital_throw
 	call GetMoveEffect
 	ld hl, MoveEffectPriorities
 .loop

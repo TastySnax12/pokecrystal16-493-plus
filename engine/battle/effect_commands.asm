@@ -1641,6 +1641,8 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
+	cp EFFECT_VITAL_THROW
+	ret z
 
 	call .StatModifiers
 
@@ -5499,25 +5501,19 @@ BattleCommand_EndLoop:
 	ret
 
 BattleCommand_FakeOut:
-	ld a, [wAttackMissed]
+	ld hl, wPlayerTurnsTaken
+	ldh a, [hBattleTurn]
 	and a
-	ret nz
-
-	call CheckSubstituteOpp
-	jr nz, .fail
-
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	and 1 << FRZ | SLP
-	jr nz, .fail
-
-	call CheckOpponentWentFirst
-	jr z, FlinchTarget
-
-.fail
-	ld a, 1
-	ld [wAttackMissed], a
-	ret
+	jr z, .got_var
+	dec hl
+.got_var
+	ld a, [hl]
+	cp 1
+	ret z
+	ld hl, ButItFailedText
+	ld de, ItFailedText
+	call StdBattleTextbox
+	jp EndMoveEffect
 
 BattleCommand_FlinchTarget:
 	call CheckSubstituteOpp

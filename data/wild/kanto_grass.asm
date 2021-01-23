@@ -812,4 +812,31 @@ KantoGrassWildMons:
 	dbw 42, GOLBAT
 	dbw 42, GOLBAT
 
+	map_id SAFARI_ZONE_BETA
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	; day
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	; nite
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+	dbw 50, BULBASAUR
+
 	db -1 ; end
