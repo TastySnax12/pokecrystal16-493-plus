@@ -438,13 +438,13 @@ wPlayerSubStatus1:: ; c668
 	db
 wPlayerSubStatus2:: ; c669
 ; bit
-; 7
-; 6
-; 5
-; 4
-; 3
-; 2
-; 1
+; 7 power trick
+; 6 embargo
+; 5 miracle eye
+; 4 grudge
+; 3 imprison
+; 2 yawn2
+; 1 yawn
 ; 0 curled
 	db
 wPlayerSubStatus3:: ; c66a
@@ -464,7 +464,7 @@ wPlayerSubStatus4:: ; c66b
 ; 6 rage
 ; 5 recharge
 ; 4 substitute
-; 3
+; 3 ingrain
 ; 2 focus energy
 ; 1 mist
 ; 0 x accuracy
@@ -476,9 +476,21 @@ wPlayerSubStatus5:: ; c66c
 ; 5 lock-on
 ; 4 encored
 ; 3 transformed
+; 2 torment
+; 1 charge
+; 0 toxic
+	db
+
+wPlayerSubStatus6::
+; bit
+; 7
+; 6
+; 5
+; 4
+; 3
 ; 2
 ; 1
-; 0 toxic
+; 0
 	db
 
 wEnemySubStatus1:: ; c66d
@@ -496,6 +508,9 @@ wEnemySubStatus4:: ; c670
 wEnemySubStatus5:: ; c671
 ; see wPlayerSubStatus5
 	db
+wEnemySubStatus6::
+; see wPlayerSubStatus6
+	db
 
 wPlayerRolloutCount:: db ; c672
 wPlayerConfuseCount:: db ; c673
@@ -505,6 +520,12 @@ wPlayerEncoreCount:: db ; c676
 wPlayerPerishCount:: db ; c677
 wPlayerFuryCutterCount:: db ; c678
 wPlayerProtectCount:: db ; c679
+wPlayerWishCount:: db
+wPlayerTailwindCount:: db
+wPlayerHealBlockCount:: db
+wPlayerLuckyChantCount:: db
+wPlayerMagnetRiseCount:: db
+wPlayerLastResortFlags:: db
 
 wEnemyRolloutCount:: db ; c67a
 wEnemyConfuseCount:: db ; c67b
@@ -514,6 +535,12 @@ wEnemyEncoreCount:: db ; c67e
 wEnemyPerishCount:: db ; c67f
 wEnemyFuryCutterCount:: db ; c680
 wEnemyProtectCount:: db ; c681
+wEnemyWishCount:: db
+wEnemyTailwindCount:: db
+wEnemyHealBlockCount:: db
+wEnemyLuckyChantCount:: db
+wEnemyMagnetRiseCount:: db
+wEnemyLastResortFlags:: db
 
 wPlayerDamageTaken:: dw ; c682
 wEnemyDamageTaken:: dw ; c684
@@ -617,13 +644,13 @@ wBattleLowHealthAlarm:: db ; c6fd
 wPlayerMinimized:: db ; c6fe
 wPlayerScreens:: ; c6ff
 ; bit
-; 7
-; 6
-; 5
+; 7 toxic spikes2
+; 6 toxic spikes
+; 5 stealth rock
 ; 4 reflect
 ; 3 light screen
 ; 2 safeguard
-; 1
+; 1 spikes2
 ; 0 spikes
 	db
 
@@ -646,14 +673,19 @@ wBattleWeather:: ; c70a
 ; 01 rain
 ; 02 sun
 ; 03 sandstorm
-; 04 rain stopped
-; 05 sunliight faded
-; 06 sandstorm subsided
+; 04 hail
+; 05 rain stopped
+; 06 sunliight faded
+; 07 sandstorm subsided
+; 08 hail stopped
 	db
 
 wWeatherCount:: ; c70b
 ; # turns remaining
 	db
+
+wTrickRoomCount:: db
+wGravityCount:: db
 
 wLoweredStat:: db ; c70c
 wEffectFailed:: db ; c70d
@@ -678,6 +710,8 @@ wLastEnemyMove:: db ; c71c
 
 wPlayerFutureSightCount:: db ; c71d
 wEnemyFutureSightCount:: db ; c71e
+wPlayerFutureSightMode:: db
+wEnemyFutureSightMode:: db
 
 wGivingExperienceToExpShareHolders:: db ; c71f
 
