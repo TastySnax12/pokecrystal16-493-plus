@@ -262,3 +262,12 @@ AnimationPointers:
 	dw CorasunAnimation
 	dw CoramolaAnimation
 	dw MambokingAnimation
+	dw BiteelAnimation
+	dw GrotessAnimation
+	dw RinringAnimation
+	dw BellrunAnimation
+	dw BlottleAnimation
+	dw PendrakenAnimation
+	dw KurstrawAnimation
+	dw PangshiAnimation
+	

@@ -262,4 +262,12 @@ BitmasksPointers:
 	dw CorasunBitmasks
 	dw CoramolaBitmasks
 	dw MambokingBitmasks
+	dw BiteelBitmasks
+	dw GrotessBitmasks
+	dw RinringBitmasks
+	dw BellrunBitmasks
+	dw BlottleBitmasks
+	dw PendrakenBitmasks
+	dw KurstrawBitmasks
+	dw PangshiBitmasks
 	

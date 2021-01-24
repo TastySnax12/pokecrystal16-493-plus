@@ -556,3 +556,19 @@ INCBIN "gfx/pokemon/coramola/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/coramola/shiny.pal"
 INCBIN "gfx/pokemon/mamboking/front.gbcpal", middle_colors
 INCLUDE "gfx/pokemon/mamboking/shiny.pal"
+INCBIN "gfx/pokemon/biteel/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/biteel/shiny.pal"
+INCBIN "gfx/pokemon/grotess/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/grotess/shiny.pal"
+INCBIN "gfx/pokemon/rinring/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/rinring/shiny.pal"
+INCBIN "gfx/pokemon/bellrun/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/bellrun/shiny.pal"
+INCBIN "gfx/pokemon/blottle/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/blottle/shiny.pal"
+INCBIN "gfx/pokemon/pendraken/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/pendraken/shiny.pal"
+INCBIN "gfx/pokemon/kurstraw/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/kurstraw/shiny.pal"
+INCBIN "gfx/pokemon/pangshi/front.gbcpal", middle_colors
+INCLUDE "gfx/pokemon/pangshi/shiny.pal"

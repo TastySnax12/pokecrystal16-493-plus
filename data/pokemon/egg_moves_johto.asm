@@ -101,18 +101,6 @@ EggMovePointers2::
 	dw NoEggMoves2
 	dw NoEggMoves2
 	dw NoEggMoves2
-	dw FlambearEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw CruizeEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw KotoraEggMoves
-	dw NoEggMoves2
-	dw BomshealEggMoves
-	dw CorasunEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
 	
 ChikoritaEggMoves:
 	dw VINE_WHIP
@@ -479,44 +467,4 @@ LarvitarEggMoves:
 	dw ANCIENTPOWER
 
 NoEggMoves2:
-	dw -1 ; end
-
-FlambearEggMoves:
-	dw FURY_SWIPES
-	dw QUICK_ATTACK
-	dw REVERSAL
-	dw THRASH
-	dw FORESIGHT
-	dw FAINT_ATTACK
-	dw SUBMISSION
-	dw -1 ; end
-	
-CruizeEggMoves:
-	dw ICY_WIND
-	dw BLIZZARD
-	dw HYDRO_PUMP
-	dw ANCIENTPOWER
-	dw RAZOR_WIND
-	dw ROCK_SLIDE
-	dw -1 ; end
-	
-KotoraEggMoves:
-	dw THUNDERBOLT
-	dw TAKE_DOWN
-	dw SCREECH
-	dw -1 ; end
-
-BomshealEggMoves:
-	dw FLAMETHROWER
-	dw FIRE_SPIN
-	dw BUBBLEBEAM
-	dw FIRE_BLAST
-	dw SLAM
-	dw THRASH
-	dw -1 ; end
-
-CorasunEggMoves:
-	dw RAIN_DANCE
-	dw REVERSAL
-	dw SWAGGER
 	dw -1 ; end

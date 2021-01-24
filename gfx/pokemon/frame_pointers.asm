@@ -262,4 +262,12 @@ FramesPointers:
 	dba CorasunFrames
 	dba CoramolaFrames
 	dba MambokingFrames
+	dba BiteelFrames
+	dba GrotessFrames
+	dba RinringFrames
+	dba BellrunFrames
+	dba BlottleFrames
+	dba PendrakenFrames
+	dba KurstrawFrames
+	dba PangshiFrames
 	

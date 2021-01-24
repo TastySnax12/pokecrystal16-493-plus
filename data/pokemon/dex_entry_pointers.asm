@@ -263,4 +263,12 @@ PokedexDataPointerTable:
 	dba CorasunPokedexEntry
 	dba CoramolaPokedexEntry
 	dba MambokingPokedexEntry
+	dba BiteelPokedexEntry
+	dba GrotessPokedexEntry
+	dba RinringPokedexEntry
+	dba BellrunPokedexEntry
+	dba BlottlePokedexEntry
+	dba PendrakenPokedexEntry
+	dba KurstrawPokedexEntry
+	dba PangshiPokedexEntry
 	

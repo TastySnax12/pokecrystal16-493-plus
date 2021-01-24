@@ -16,9 +16,12 @@ AlphabeticalPokedexOrder:
 	dw BAYLEEF
 	dw BEEDRILL
 	dw BELLOSSOM
+	dw BELLRUN
 	dw BELLSPROUT
+	dw BITEEL
 	dw BLASTOISE
 	dw BLISSEY
+	dw BLOTTLE
 	dw BOMSHEAL
 	dw BULBASAUR
 	dw BUTTERFREE
@@ -86,6 +89,7 @@ AlphabeticalPokedexOrder:
 	dw GRANBULL
 	dw GRAVELER
 	dw GRIMER
+	dw GROTESS
 	dw GROWLITHE
 	dw GYARADOS
 	dw HAUNTER
@@ -116,6 +120,7 @@ AlphabeticalPokedexOrder:
 	dw KOFFING
 	dw KOTORA
 	dw KRABBY
+	dw KURSTRAW
 	dw LANTURN
 	dw LAPRAS
 	dw LARVITAR
@@ -163,8 +168,10 @@ AlphabeticalPokedexOrder:
 	dw OMANYTE
 	dw OMASTAR
 	dw ONIX
+	dw PANGSHI
 	dw PARAS
 	dw PARASECT
+	dw PENDRAKEN
 	dw PERSIAN
 	dw PHANPY
 	dw PICHU
@@ -197,6 +204,7 @@ AlphabeticalPokedexOrder:
 	dw REMORAID
 	dw RHYDON
 	dw RHYHORN
+	dw RINRING
 	dw SANDSHREW
 	dw SANDSLASH
 	dw SCIZOR
