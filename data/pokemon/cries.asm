@@ -1,6 +1,16 @@
 mon_cry: MACRO
+if _NARG==3
+; regular cry
 ; index, pitch, length
 	dw \1, \2, \3
+else
+assert _NARG==1
+; sampled cry
+	db CRY_SAMPLED
+	dw \1
+	dw \1_End - \1
+	db BANK(\1)
+endc
 ENDM
 
 PokemonCries::
@@ -155,7 +165,8 @@ PokemonCries::
 	mon_cry CRY_BULBASAUR,   $040,  $100 ; DRAGONAIR
 	mon_cry CRY_BULBASAUR,   $03c,  $140 ; DRAGONITE
 	mon_cry CRY_PARAS,       $099,  $17f ; MEWTWO
-	mon_cry CRY_PARAS,       $0ee,  $17f ; MEW
+	;mon_cry CRY_PARAS,       $0ee,  $17f ; MEW
+	mon_cry TestSampledCry
 	mon_cry CRY_CHIKORITA,  -$010,  $0b0 ; CHIKORITA
 	mon_cry CRY_CHIKORITA,  -$022,  $120 ; BAYLEEF
 	mon_cry CRY_CHIKORITA,  -$0b7,  $200 ; MEGANIUM

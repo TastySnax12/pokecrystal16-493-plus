@@ -89,7 +89,10 @@ wMusicFade:: ; c2a7
 wMusicFadeCount:: db ; c2a8
 wMusicFadeID:: dw ; c2a9
 
-	ds 5
+wSampleData::
+wSamplePointer:: dw ; c2ab
+wSampleSize:: dw ; c2ad
+wSampleBank:: db ; c2af
 
 wCryPitch:: dw ; c2b0
 wCryLength:: dw ; c2b2

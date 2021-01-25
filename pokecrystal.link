@@ -313,6 +313,8 @@ ROMX $7f
 	"Base Data 2"
 	org $7de0
 	"Mobile Stadium 2"
+ROMX $80
+	"Sampled Cries"
 WRAM0
 	"Stack"
 	"Audio RAM"

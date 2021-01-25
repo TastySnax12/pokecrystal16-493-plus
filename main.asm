@@ -17,6 +17,8 @@ INCLUDE "engine/events/happiness_egg.asm"
 INCLUDE "engine/events/shuckle.asm"
 INCLUDE "engine/events/haircut.asm"
 
+INCLUDE "audio/sample_cry.asm"
+
 
 SECTION "bank2", ROMX
 
