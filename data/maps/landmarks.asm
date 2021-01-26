@@ -103,8 +103,8 @@ Landmarks:
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
 
-NewBarkTownName:     db "NEW BARK¯TOWN@"
-CherrygroveCityName: db "CHERRYGROVE¯CITY@"
+NewBarkTownName:     db "TWINLEAF¯TOWN@"
+CherrygroveCityName: db "SANDGEM¯TOWN@"
 VioletCityName:      db "VIOLET CITY@"
 AzaleaTownName:      db "AZALEA TOWN@"
 GoldenrodCityName:   db "GOLDENROD¯CITY@"
@@ -177,8 +177,8 @@ Route25Name:         db "ROUTE 25@"
 Route26Name:         db "ROUTE 26@"
 Route27Name:         db "ROUTE 27@"
 Route28Name:         db "ROUTE 28@"
-Route29Name:         db "ROUTE 29@"
-Route30Name:         db "ROUTE 30@"
+Route29Name:         db "ROUTE 201@"
+Route30Name:         db "LAKE VERITY@"
 Route31Name:         db "ROUTE 31@"
 Route32Name:         db "ROUTE 32@"
 Route33Name:         db "ROUTE 33@"

@@ -283,20 +283,20 @@ NewBarkTown_MapEvents:
 	db 0, 0 ; filler
 
 	db 4 ; warp events
-	warp_event  6,  3, ELMS_LAB, 1
-	warp_event 13,  5, PLAYERS_HOUSE_1F, 1
-	warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
-	warp_event 11, 13, ELMS_HOUSE, 1
+	warp_event  5,  7, ELMS_LAB, 1
+	warp_event 15, 13, PLAYERS_HOUSE_1F, 1
+	warp_event 15,  7, PLAYERS_NEIGHBORS_HOUSE, 1
+	warp_event  5, 13, ELMS_HOUSE, 1
 
 	db 2 ; coord events
 	coord_event  1,  8, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1
 	coord_event  1,  9, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene2
 
-	db 4 ; bg events
-	bg_event  8,  8, BGEVENT_READ, NewBarkTownSign
-	bg_event 11,  5, BGEVENT_READ, NewBarkTownPlayersHouseSign
-	bg_event  3,  3, BGEVENT_READ, NewBarkTownElmsLabSign
-	bg_event  9, 13, BGEVENT_READ, NewBarkTownElmsHouseSign
+	db 3 ; bg events
+	bg_event  9,  7, BGEVENT_READ, NewBarkTownSign
+	bg_event 13, 13, BGEVENT_READ, NewBarkTownPlayersHouseSign
+	bg_event  3,  7, BGEVENT_READ, NewBarkTownElmsLabSign
+	;bg_event  9, 13, BGEVENT_READ, NewBarkTownElmsHouseSign
 
 	db 3 ; object events
 	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
