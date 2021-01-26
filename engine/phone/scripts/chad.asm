@@ -14,7 +14,7 @@ ChadPhoneCalleeScript:
 	farsjump UnknownScript_0xa0980
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_38
+;	getlandmarkname STRING_BUFFER_5, ROUTE_38
 	farsjump UnknownScript_0xa0a7d
 
 ChadPhoneCallerScript:
@@ -38,7 +38,7 @@ ChadFridayMorning:
 	setflag ENGINE_CHAD_FRIDAY_MORNING
 
 ChadWantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_38
+;	getlandmarkname STRING_BUFFER_5, ROUTE_38
 	setflag ENGINE_CHAD
 	farsjump PhoneScript_WantsToBattle_Male
 

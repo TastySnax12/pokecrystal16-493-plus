@@ -73,32 +73,32 @@ EngineFlags:
 
 	; fly
 	engine_flag wVisitedSpawns, SPAWN_HOME
-	engine_flag wVisitedSpawns, SPAWN_DEBUG
-	engine_flag wVisitedSpawns, SPAWN_PALLET
-	engine_flag wVisitedSpawns, SPAWN_VIRIDIAN
-	engine_flag wVisitedSpawns, SPAWN_PEWTER
-	engine_flag wVisitedSpawns, SPAWN_CERULEAN ; $38
-	engine_flag wVisitedSpawns, SPAWN_ROCK_TUNNEL
-	engine_flag wVisitedSpawns, SPAWN_VERMILION
-	engine_flag wVisitedSpawns, SPAWN_LAVENDER
-	engine_flag wVisitedSpawns, SPAWN_SAFFRON
-	engine_flag wVisitedSpawns, SPAWN_CELADON
-	engine_flag wVisitedSpawns, SPAWN_FUCHSIA
-	engine_flag wVisitedSpawns, SPAWN_CINNABAR
-	engine_flag wVisitedSpawns, SPAWN_INDIGO ; $40
-	engine_flag wVisitedSpawns, SPAWN_NEW_BARK
-	engine_flag wVisitedSpawns, SPAWN_CHERRYGROVE
-	engine_flag wVisitedSpawns, SPAWN_VIOLET
-	engine_flag wVisitedSpawns, SPAWN_AZALEA
-	engine_flag wVisitedSpawns, SPAWN_CIANWOOD
-	engine_flag wVisitedSpawns, SPAWN_GOLDENROD
-	engine_flag wVisitedSpawns, SPAWN_OLIVINE
-	engine_flag wVisitedSpawns, SPAWN_ECRUTEAK ; $48
-	engine_flag wVisitedSpawns, SPAWN_MAHOGANY
-	engine_flag wVisitedSpawns, SPAWN_LAKE_OF_RAGE
-	engine_flag wVisitedSpawns, SPAWN_BLACKTHORN
-	engine_flag wVisitedSpawns, SPAWN_MT_SILVER
-	engine_flag wVisitedSpawns, NUM_SPAWNS ; unused
+	engine_flag wVisitedSpawns, SPAWN_TWINLEAF
+	engine_flag wVisitedSpawns, SPAWN_SANDGEM
+	engine_flag wVisitedSpawns, 3
+	engine_flag wVisitedSpawns, 4
+	engine_flag wVisitedSpawns, 5 ; $38
+	engine_flag wVisitedSpawns, 6
+	engine_flag wVisitedSpawns, 7
+	engine_flag wVisitedSpawns, 8
+	engine_flag wVisitedSpawns, 9
+	engine_flag wVisitedSpawns, 10
+	engine_flag wVisitedSpawns, 11
+	engine_flag wVisitedSpawns, 12
+	engine_flag wVisitedSpawns, 13 ; $40
+	engine_flag wVisitedSpawns, 14
+	engine_flag wVisitedSpawns, 15
+	engine_flag wVisitedSpawns, 16
+	engine_flag wVisitedSpawns, 17
+	engine_flag wVisitedSpawns, 18
+	engine_flag wVisitedSpawns, 19
+	engine_flag wVisitedSpawns, 20
+	engine_flag wVisitedSpawns, 21 ; $48
+	engine_flag wVisitedSpawns, 22
+	engine_flag wVisitedSpawns, 23
+	engine_flag wVisitedSpawns, 24
+	engine_flag wVisitedSpawns, 25
+	engine_flag wVisitedSpawns, 26 ; unused
 
 	engine_flag wLuckyNumberShowFlag, LUCKYNUMBERSHOW_GAME_OVER_F
 

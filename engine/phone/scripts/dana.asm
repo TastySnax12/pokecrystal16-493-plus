@@ -16,11 +16,11 @@ DanaPhoneCalleeScript:
 	farsjump UnknownScript_0xa0978
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_38
+;	getlandmarkname STRING_BUFFER_5, ROUTE_38
 	farsjump UnknownScript_0xa0a78
 
 .HasThunderstone:
-	getlandmarkname STRING_BUFFER_5, ROUTE_38
+;	getlandmarkname STRING_BUFFER_5, ROUTE_38
 	farsjump UnknownScript_0xa0acd
 
 DanaPhoneCallerScript:
@@ -52,7 +52,7 @@ DanaThursdayNight:
 	setflag ENGINE_DANA_THURSDAY_NIGHT
 
 DanaWantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_38
+;	getlandmarkname STRING_BUFFER_5, ROUTE_38
 	setflag ENGINE_DANA
 	farsjump PhoneScript_WantsToBattle_Female
 
@@ -61,5 +61,5 @@ DanaFoundRare:
 
 DanaHasThunderstone:
 	setflag ENGINE_DANA_HAS_THUNDERSTONE
-	getlandmarkname STRING_BUFFER_5, ROUTE_38
+;	getlandmarkname STRING_BUFFER_5, ROUTE_38
 	farsjump PhoneScript_FoundItem_Female

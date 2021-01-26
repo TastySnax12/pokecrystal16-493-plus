@@ -324,3 +324,4 @@ PangshiEvosAttacks:
 	dbw 55, SHADOW_BALL
 	dbw 61, PERISH_SONG
 	db 0 ; no more level-up moves
+

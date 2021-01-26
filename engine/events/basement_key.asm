@@ -1,12 +1,12 @@
 _BasementKey:
 ; Are we even in the right map to use this?
-	ld a, [wMapGroup]
-	cp GROUP_GOLDENROD_UNDERGROUND
-	jr nz, .nope
-
-	ld a, [wMapNumber]
-	cp MAP_GOLDENROD_UNDERGROUND
-	jr nz, .nope
+;	ld a, [wMapGroup]
+;	cp GROUP_GOLDENROD_UNDERGROUND
+;	jr nz, .nope
+;
+;	ld a, [wMapNumber]
+;	cp MAP_GOLDENROD_UNDERGROUND
+;	jr nz, .nope
 ; Are we on the tile in front of the door?
 	call GetFacingTileCoord
 	ld a, d
@@ -29,4 +29,4 @@ _BasementKey:
 
 .BasementKeyScript:
 	closetext
-	farsjump BasementDoorScript
+;	farsjump BasementDoorScript

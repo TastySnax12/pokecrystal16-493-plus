@@ -76,8 +76,8 @@ CheckPartyFullAfterContest:
 	call GetPartyLocation
 	ld a, [hl]
 	and CAUGHT_GENDER_MASK
-	ld b, NATIONAL_PARK
-	or b
+;	ld b, NATIONAL_PARK
+;	or b
 	ld [hl], a
 	xor a
 	ld [wContestMon], a
@@ -136,8 +136,8 @@ CheckPartyFullAfterContest:
 	ld hl, sBoxMon1CaughtLocation
 	ld a, [hl]
 	and CAUGHT_GENDER_MASK
-	ld b, NATIONAL_PARK
-	or b
+;	ld b, NATIONAL_PARK
+;	or b
 	ld [hl], a
 	call CloseSRAM
 	xor a

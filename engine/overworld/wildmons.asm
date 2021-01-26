@@ -535,16 +535,16 @@ InitRoamMons:
 	ld [wRoamMon2Level], a
 
 ; raikou starting map
-	ld a, GROUP_ROUTE_42
-	ld [wRoamMon1MapGroup], a
-	ld a, MAP_ROUTE_42
-	ld [wRoamMon1MapNumber], a
+;	ld a, GROUP_ROUTE_42
+;	ld [wRoamMon1MapGroup], a
+;	ld a, MAP_ROUTE_42
+;	ld [wRoamMon1MapNumber], a
 
 ; entei starting map
-	ld a, GROUP_ROUTE_37
-	ld [wRoamMon2MapGroup], a
-	ld a, MAP_ROUTE_37
-	ld [wRoamMon2MapNumber], a
+;	ld a, GROUP_ROUTE_37
+;	ld [wRoamMon2MapGroup], a
+;	ld a, MAP_ROUTE_37
+;	ld [wRoamMon2MapNumber], a
 
 ; hp
 	xor a ; generate new stats

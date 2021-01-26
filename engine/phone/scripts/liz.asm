@@ -15,7 +15,7 @@ LizPhoneCalleeScript:
 	farsjump UnknownScript_0xa0948
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_32
+;	getlandmarkname STRING_BUFFER_5, ROUTE_32
 	farsjump UnknownScript_0xa0a5a
 
 LizPhoneCallerScript:
@@ -31,8 +31,8 @@ LizPhoneCallerScript:
 .next:
 	farscall PhoneScript_Random2
 	ifequal 0, LizGossip
-	checkflag ENGINE_FLYPOINT_GOLDENROD
-	iffalse .Generic
+;	checkflag ENGINE_FLYPOINT_GOLDENROD
+;	iffalse .Generic
 	farscall PhoneScript_Random2
 	ifequal 0, LizWantsBattle
 
@@ -43,7 +43,7 @@ LizThursdayAfternoon:
 	setflag ENGINE_LIZ_THURSDAY_AFTERNOON
 
 LizWantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_32
+;	getlandmarkname STRING_BUFFER_5, ROUTE_32
 	setflag ENGINE_LIZ
 	farsjump PhoneScript_WantsToBattle_Female
 

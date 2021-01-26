@@ -19,7 +19,7 @@ DerekPhoneCalleeScript:
 	farsjump PhoneScript_BugCatchingContest
 
 .Nugget:
-	getlandmarkname STRING_BUFFER_5, ROUTE_39
+;	getlandmarkname STRING_BUFFER_5, ROUTE_39
 	farsjump UnknownScript_0xa0ad5
 
 DerekPhoneCallerScript:
@@ -44,5 +44,5 @@ DerekPhoneCallerScript:
 
 .Nugget:
 	setflag ENGINE_DEREK_HAS_NUGGET
-	getlandmarkname STRING_BUFFER_5, ROUTE_39
+;	getlandmarkname STRING_BUFFER_5, ROUTE_39
 	farsjump PhoneScript_FoundItem_Male

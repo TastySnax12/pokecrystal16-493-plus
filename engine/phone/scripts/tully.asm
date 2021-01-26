@@ -16,11 +16,11 @@ TullyPhoneCalleeScript:
 	farsjump UnknownScript_0xa0990
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_42
+;	getlandmarkname STRING_BUFFER_5, ROUTE_42
 	farsjump UnknownScript_0xa0a82
 
 .WaterStone:
-	getlandmarkname STRING_BUFFER_5, ROUTE_42
+;	getlandmarkname STRING_BUFFER_5, ROUTE_42
 	farsjump UnknownScript_0xa0add
 
 TullyPhoneCallerScript:
@@ -50,11 +50,11 @@ TullySundayNight:
 	setflag ENGINE_TULLY_SUNDAY_NIGHT
 
 TullyWantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_42
+;	getlandmarkname STRING_BUFFER_5, ROUTE_42
 	setflag ENGINE_TULLY
 	farsjump PhoneScript_WantsToBattle_Male
 
 TullyFoundWaterStone:
 	setflag ENGINE_TULLY_HAS_WATER_STONE
-	getlandmarkname STRING_BUFFER_5, ROUTE_42
+;	getlandmarkname STRING_BUFFER_5, ROUTE_42
 	farsjump PhoneScript_FoundItem_Male

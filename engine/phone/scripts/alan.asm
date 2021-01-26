@@ -16,11 +16,11 @@ AlanPhoneCalleeScript:
 	farsjump UnknownScript_0xa0970
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_36
+;	getlandmarkname STRING_BUFFER_5, ROUTE_36
 	farsjump UnknownScript_0xa0a73
 
 .FireStone:
-	getlandmarkname STRING_BUFFER_5, ROUTE_36
+;	getlandmarkname STRING_BUFFER_5, ROUTE_36
 	farsjump UnknownScript_0xa0ac5
 
 AlanPhoneCallerScript:
@@ -50,11 +50,11 @@ AlanWednesdayDay:
 	setflag ENGINE_ALAN_WEDNESDAY_AFTERNOON
 
 AlanWantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_36
+;	getlandmarkname STRING_BUFFER_5, ROUTE_36
 	setflag ENGINE_ALAN
 	farsjump PhoneScript_WantsToBattle_Male
 
 AlanHasFireStone:
 	setflag ENGINE_ALAN_HAS_FIRE_STONE
-	getlandmarkname STRING_BUFFER_5, ROUTE_36
+;	getlandmarkname STRING_BUFFER_5, ROUTE_36
 	farsjump PhoneScript_FoundItem_Male

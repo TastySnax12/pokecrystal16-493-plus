@@ -2,7 +2,7 @@
 	const TESTMAP_EVENT1
 	const TESTMAP_EVENT2
 
-SafariZoneBeta_MapScripts:
+DebugRoom_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
@@ -44,7 +44,7 @@ TestMap_Obj2_Script:
 	predef LearnMove
 	ret
 
-SafariZoneBeta_MapEvents:
+DebugRoom_MapEvents:
 	db 0, 0 ; filler
 
 	db 2 ; warp events

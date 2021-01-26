@@ -16,11 +16,11 @@ TiffanyPhoneCalleeScript:
 	farsjump UnknownScript_0xa09a0
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_43
+;	getlandmarkname STRING_BUFFER_5, ROUTE_43
 	farsjump UnknownScript_0xa0a8c
 
 .HasItem:
-	getlandmarkname STRING_BUFFER_5, ROUTE_43
+;	getlandmarkname STRING_BUFFER_5, ROUTE_43
 	farsjump UnknownScript_0xa0ae5
 
 TiffanyPhoneCallerScript:
@@ -52,7 +52,7 @@ TiffanyTuesdayAfternoon:
 	setflag ENGINE_TIFFANY_TUESDAY_AFTERNOON
 
 TiffanyWantsBattle:
-	getlandmarkname STRING_BUFFER_5, ROUTE_43
+;	getlandmarkname STRING_BUFFER_5, ROUTE_43
 	setflag ENGINE_TIFFANY
 	farsjump PhoneScript_WantsToBattle_Female
 
@@ -94,5 +94,5 @@ TiffanysFamilyMembers:
 
 TiffanyHasPinkBow:
 	setflag ENGINE_TIFFANY_HAS_PINK_BOW
-	getlandmarkname STRING_BUFFER_5, ROUTE_43
+;	getlandmarkname STRING_BUFFER_5, ROUTE_43
 	farsjump PhoneScript_FoundItem_Female

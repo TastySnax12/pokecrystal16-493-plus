@@ -128,8 +128,8 @@ Pokegear_LoadGFX:
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
-	cp FAST_SHIP
-	jr z, .ssaqua
+;	cp FAST_SHIP
+;	jr z, .ssaqua
 	farcall GetPlayerIcon
 	push de
 	ld h, d
@@ -193,7 +193,7 @@ TownMap_GetCurrentLandmark:
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
-	cp SPECIAL_MAP
+	cp LANDMARK_SPECIAL_MAP
 	ret nz
 	ld a, [wBackupMapGroup]
 	ld b, a
@@ -208,9 +208,9 @@ TownMap_InitCursorAndPlayerIconPositions:
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
-	cp FAST_SHIP
-	jr z, .FastShip
-	cp SPECIAL_MAP
+;	cp FAST_SHIP
+;	jr z, .FastShip
+	cp LANDMARK_SPECIAL_MAP
 	jr nz, .LoadLandmark
 	ld a, [wBackupMapGroup]
 	ld b, a
@@ -224,7 +224,7 @@ TownMap_InitCursorAndPlayerIconPositions:
 
 .FastShip:
 	ld [wPokegearMapPlayerIconLandmark], a
-	ld a, NEW_BARK_TOWN
+	ld a, LANDMARK_TWINLEAF_TOWN
 	ld [wPokegearMapCursorLandmark], a
 	ret
 
@@ -322,10 +322,10 @@ InitPokegearTilemap:
 
 .Map:
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp FAST_SHIP
-	jr z, .johto
-	cp KANTO_LANDMARK
-	jr nc, .kanto
+;	cp FAST_SHIP
+;	jr z, .johto
+;	cp KANTO_LANDMARK
+;	jr nc, .kanto
 .johto
 	ld e, 0
 	jr .ok
@@ -537,10 +537,10 @@ Pokegear_UpdateClock:
 
 PokegearMap_CheckRegion:
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp FAST_SHIP
-	jr z, .johto
-	cp KANTO_LANDMARK
-	jr nc, .kanto
+;	cp FAST_SHIP
+;	jr z, .johto
+;	cp KANTO_LANDMARK
+;	jr nc, .kanto
 .johto
 	ld a, POKEGEARSTATE_JOHTOMAPINIT
 	jr .done
@@ -572,8 +572,8 @@ PokegearMap_KantoMap:
 	jr PokegearMap_ContinueMap
 
 PokegearMap_JohtoMap:
-	ld d, SILVER_CAVE
-	ld e, NEW_BARK_TOWN
+	ld d, LANDMARK_TWINLEAF_TOWN
+	ld e, LANDMARK_TWINLEAF_TOWN
 PokegearMap_ContinueMap:
 	ld hl, hJoyLast
 	ld a, [hl]
@@ -735,13 +735,13 @@ TownMap_GetKantoLandmarkLimits:
 	ld a, [wStatusFlags]
 	bit STATUSFLAGS_HALL_OF_FAME_F, a
 	jr z, .not_hof
-	ld d, ROUTE_28
-	ld e, PALLET_TOWN
+;	ld d, ROUTE_28
+;	ld e, PALLET_TOWN
 	ret
 
 .not_hof
-	ld d, ROUTE_28
-	ld e, VICTORY_ROAD
+;	ld d, ROUTE_28
+;	ld e, VICTORY_ROAD
 	ret
 
 PokegearRadio_Init:
@@ -1507,8 +1507,8 @@ RadioChannels:
 
 .RuinsOfAlphRadio:
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp RUINS_OF_ALPH
-	jr nz, .NoSignal
+;	cp RUINS_OF_ALPH
+;	jr nz, .NoSignal
 	jp LoadStation_UnownRadio
 
 .PlacesAndPeople:
@@ -1541,12 +1541,12 @@ RadioChannels:
 	bit STATUSFLAGS_ROCKET_SIGNAL_F, a
 	jr z, .NoSignal
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp MAHOGANY_TOWN
-	jr z, .ok
-	cp ROUTE_43
-	jr z, .ok
-	cp LAKE_OF_RAGE
-	jr nz, .NoSignal
+;	cp MAHOGANY_TOWN
+;	jr z, .ok
+;	cp ROUTE_43
+;	jr z, .ok
+;	cp LAKE_OF_RAGE
+;	jr nz, .NoSignal
 .ok
 	jp LoadStation_EvolutionRadio
 
@@ -1559,10 +1559,10 @@ RadioChannels:
 
 ; otherwise clear carry
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp FAST_SHIP
-	jr z, .johto
-	cp KANTO_LANDMARK
-	jr c, .johto
+;	cp FAST_SHIP
+;	jr z, .johto
+;	cp KANTO_LANDMARK
+;	jr c, .johto
 .kanto
 	and a
 	ret
@@ -2271,7 +2271,7 @@ FlyMap:
 	call GetWorldMapLocation
 ; If we're not in a valid location, i.e. Pokecenter floor 2F,
 ; the backup map information is used.
-	cp SPECIAL_MAP
+	cp LANDMARK_SPECIAL_MAP
 	jr nz, .CheckRegion
 	ld a, [wBackupMapGroup]
 	ld b, a
@@ -2286,12 +2286,12 @@ FlyMap:
 ; Note that .NoKanto should be modified in tandem with this branch
 	push af
 ; Start from New Bark Town
-	ld a, FLY_NEW_BARK
+	ld a, FLY_TWINLEAF
 	ld [wTownMapPlayerIconLandmark], a
 ; Flypoints begin at New Bark Town...
 	ld [wStartFlypoint], a
 ; ..and end at Silver Cave.
-	ld a, FLY_MT_SILVER
+	ld a, FLY_TWINLEAF
 	ld [wEndFlypoint], a
 ; Fill out the map
 	call FillJohtoMap
@@ -2310,17 +2310,17 @@ FlyMap:
 ; enters Kanto, fly access is restricted until Indigo Plateau is
 ; visited and its flypoint enabled.
 	push af
-	ld c, SPAWN_INDIGO
+	ld c, SPAWN_TWINLEAF
 	call HasVisitedSpawn
 	and a
 	jr z, .NoKanto
 ; Kanto's map is only loaded if we've visited Indigo Plateau
 
 ; Flypoints begin at Pallet Town...
-	ld a, FLY_PALLET
+	ld a, FLY_TWINLEAF
 	ld [wStartFlypoint], a
 ; ...and end at Indigo Plateau
-	ld a, FLY_INDIGO
+	ld a, FLY_TWINLEAF
 	ld [wEndFlypoint], a
 ; Because Indigo Plateau is the first flypoint the player
 ; visits, it's made the default flypoint.
@@ -2336,12 +2336,12 @@ FlyMap:
 ; If Indigo Plateau hasn't been visited, we use Johto's map instead
 
 ; Start from New Bark Town
-	ld a, FLY_NEW_BARK
+	ld a, FLY_TWINLEAF
 	ld [wTownMapPlayerIconLandmark], a
 ; Flypoints begin at New Bark Town...
 	ld [wStartFlypoint], a
 ; ..and end at Silver Cave
-	ld a, FLY_MT_SILVER
+	ld a, FLY_TWINLEAF
 	ld [wEndFlypoint], a
 	call FillJohtoMap
 	pop af
@@ -2594,10 +2594,10 @@ Pokedex_GetArea:
 ; not in the same region as what's currently
 ; on the screen.
 	ld a, [wTownMapPlayerIconLandmark]
-	cp FAST_SHIP
-	jr z, .johto
-	cp KANTO_LANDMARK
-	jr c, .johto
+;	cp FAST_SHIP
+;	jr z, .johto
+;	cp KANTO_LANDMARK
+;	jr c, .johto
 .kanto
 	ld a, [wTownMapCursorLandmark]
 	and a
@@ -2622,8 +2622,8 @@ Pokedex_GetArea:
 
 .GetPlayerOrFastShipIcon:
 	ld a, [wTownMapPlayerIconLandmark]
-	cp FAST_SHIP
-	jr z, .FastShip
+;	cp FAST_SHIP
+;	jr z, .FastShip
 	farcall GetPlayerIcon
 	ret
 
@@ -2909,7 +2909,7 @@ Unreferenced_Function92311:
 .down_right
 	ld hl, wTownMapPlayerIconLandmark
 	ld a, [hl]
-	cp FLY_INDIGO
+	cp FLY_TWINLEAF
 	jr c, .okay_dr
 	ld [hl], -1
 .okay_dr
@@ -2921,7 +2921,7 @@ Unreferenced_Function92311:
 	ld a, [hl]
 	and a
 	jr nz, .okay_ul
-	ld [hl], FLY_INDIGO + 1
+	ld [hl], FLY_TWINLEAF + 1
 .okay_ul
 	dec [hl]
 .continue
