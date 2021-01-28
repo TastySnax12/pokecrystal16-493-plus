@@ -247,6 +247,8 @@ ENDM
 	dict "<PLAY_G>",  PlaceGenderedPlayerName
 	dict "ﾟ",         .place
 	dict "ﾞ",         .place
+	dict "↑",         PlaceArrowUp
+	dict "↓",         PlaceArrowDown
 
 	cp FIRST_REGULAR_TEXT_CHAR
 	jr nc, .place
@@ -405,6 +407,28 @@ PlaceWatashiText::
 PlaceKokoWaText:: db "@"
 KunSuffixText::   db "@"
 ChanSuffixText::  db "@"
+
+PlaceArrowUp::
+	push hl
+	push bc
+	ld [hl], "↑"
+	ld bc, SCREEN_WIDTH
+	jr PlaceBarCharacter
+
+PlaceArrowDown::
+	push hl
+	push bc
+	ld [hl], "↓"
+	ld bc, -SCREEN_WIDTH
+	; fallthrough
+
+PlaceBarCharacter:
+	add hl, bc
+	pop bc
+	ld [hl], "‖"
+	pop hl
+	inc hl
+	jp NextChar
 
 NextLineChar::
 	pop hl

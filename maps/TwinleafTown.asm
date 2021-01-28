@@ -10,6 +10,46 @@ TwinleafTown_MapScripts:
 	setflag ENGINE_FLYPOINT_TWINLEAF
 	return
 
+TwinleafTownTechnologyGuy_Script:
+	jumptextfaceplayer TwinleafTownTechnologyGuy_Text
+
+TwinleafTownPokedexLady_Script:
+	jumptextfaceplayer TwinleafTownPokedexLady_Text
+
+TwinleafTownAdventureGuy_Script:
+	jumptextfaceplayer TwinleafTownAdventureGuy_Text
+
+TwinleafTownTechnologyGuy_Text:
+	text "Technology is"
+	line "incredible!"
+
+	para "Now you can play"
+	line "with people all"
+	cont "around the world…"
+
+	para "Wirelessly!"
+	done
+
+TwinleafTownPokedexLady_Text:
+	text "You're helping to"
+	line "fill up a #DEX?"
+
+	para "That means you'll"
+	line "travel all over"
+	cont "with #MON!"
+
+	para "I'm a little bit"
+	line "jealous, really!"
+	done
+
+TwinleafTownAdventureGuy_Text:
+	text "Everyone goes off"
+	line "on adventures."
+
+	para "Everyone gradually"
+	line "grows up…"
+	done
+
 TwinleafTownSign:
 	jumptext TwinleafTownSignText
 
@@ -20,11 +60,8 @@ TwinleafTownElmsLabSign:
 	jumptext TwinleafTownElmsLabSignText
 
 TwinleafTownSignText:
-	text "NEW BARK TOWN"
-
-	para "The Town Where the"
-	line "Winds of a New"
-	cont "Beginning Blow"
+	text "TWINLEAF TOWN"
+	line "Fresh and Free!"
 	done
 
 TwinleafTownPlayersHouseSignText:
@@ -32,7 +69,7 @@ TwinleafTownPlayersHouseSignText:
 	done
 
 TwinleafTownElmsLabSignText:
-	text "ELM #MON LAB"
+	text "<RIVAL>'s House"
 	done
 
 TwinleafTown_MapEvents:
@@ -51,4 +88,7 @@ TwinleafTown_MapEvents:
 	bg_event 13, 13, BGEVENT_READ, TwinleafTownPlayersHouseSign
 	bg_event  3,  7, BGEVENT_READ, TwinleafTownElmsLabSign
 
-	db 0 ; object events
+	db 3 ; object events
+	object_event  7, 15, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwinleafTownTechnologyGuy_Script, -1
+	object_event 18,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwinleafTownPokedexLady_Script, -1
+	object_event  8,  5, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TwinleafTownAdventureGuy_Script, -1

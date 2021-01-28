@@ -26,7 +26,7 @@ ENDM
 ; - scripts and events (see data/maps/scripts.asm)
 	const_def
 
-	newgroup
+	newgroup                                                      ; 1
 
 	map_const POKECENTER_2F, 8, 4 ; 1
 	map_const TRADE_CENTER, 5, 4 ; 2

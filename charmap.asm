@@ -159,12 +159,20 @@
 	charmap "y",         $b8
 	charmap "z",         $b9
 
+	charmap "⇐",         $bd
+	charmap "=",         $be
+	charmap "⇒",         $bf
+
 	charmap "Ä",         $c0
 	charmap "Ö",         $c1
 	charmap "Ü",         $c2
 	charmap "ä",         $c3
 	charmap "ö",         $c4
 	charmap "ü",         $c5
+
+	charmap "↑",         $cd
+	charmap "‖",         $ce
+	charmap "↓",         $cf
 
 	charmap "'d",        $d0
 	charmap "'l",        $d1

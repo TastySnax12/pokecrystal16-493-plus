@@ -235,6 +235,7 @@ ScriptCommandTable:
 	dw Script_checksave                  ; a9
 	dw Script_loadmonindex               ; aa
 	dw Script_checkmaplockedmons         ; ab
+	dw Script_jumptextsign               ; ac
 
 StartScript:
 	ld hl, wScriptFlags
@@ -2870,4 +2871,33 @@ LoadScriptPokemonID:
 	or l
 	jp nz, GetPokemonIDFromIndex
 	ld a, [wScriptVar]
+	ret
+
+Script_jumptextsign:
+; script command 0xac
+; parameters: text_pointer
+
+	ld a, [wScriptBank]
+	ld [wScriptTextBank], a
+	call GetScriptByte
+	ld [wScriptTextAddr], a
+	call GetScriptByte
+	ld [wScriptTextAddr + 1], a
+	ld hl, wOptions
+	set NO_TEXT_SCROLL, [hl]
+	ld b, BANK(JumpTextScript)
+	ld hl, JumpTextSignScript
+	jp ScriptJump
+
+JumpTextSignScript:
+	opentext
+	repeattext -1, -1
+	waitbutton
+	closetext
+	callasm .set_delay
+	end
+
+.set_delay
+	ld hl, wOptions
+	res NO_TEXT_SCROLL, [hl]
 	ret

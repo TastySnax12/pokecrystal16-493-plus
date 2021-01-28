@@ -1074,3 +1074,9 @@ ENDM
 checkmaplockedmons: MACRO
 	db checkmaplockedmons_command
 ENDM
+
+	enum jumptextsign_command ; $ac
+jumptextsign: MACRO
+	db jumptextsign_command
+	dw \1 ; text_pointer
+ENDM
