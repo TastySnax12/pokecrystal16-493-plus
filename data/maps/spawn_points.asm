@@ -7,7 +7,7 @@ ENDM
 SpawnPoints:
 ; entries correspond to SPAWN_* constants
 
-	spawn PLAYERS_HOUSE_2F,            3,  3
-	spawn TWINLEAF_TOWN, 0, 0
-	spawn SANDGEM_TOWN, 0, 0
-	spawn N_A,                        -1, -1
+	spawn PLAYERS_HOUSE_2F,  4,  2
+	spawn TWINLEAF_TOWN,    15, 14
+	spawn SANDGEM_TOWN,      0,  0
+	spawn N_A,              -1, -1

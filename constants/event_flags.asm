@@ -37,6 +37,7 @@
 	const EVENT_GOT_CHIKORITA_FROM_ELM
 ; replaced v---v
 	const EVENT_GOT_POTION_FROM_ROUTE_201_CLERK
+; unchanged v---v
 	const EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	const EVENT_JASMINE_RETURNED_TO_GYM
 	const EVENT_CLEARED_RADIO_TOWER
@@ -1671,7 +1672,8 @@
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
 ; The map script command macros `setevent` and `clearevent` set/clear these flags, and their effects will be seen when the map is reloaded.
 ; Johto itemballs
-	const EVENT_CYNDAQUIL_POKEBALL_IN_ELMS_LAB
+	const EVENT_PLAYERS_HOUSE_2F_RIVAL
+; unchanged v---v
 	const EVENT_TOTODILE_POKEBALL_IN_ELMS_LAB
 	const EVENT_CHIKORITA_POKEBALL_IN_ELMS_LAB
 	const EVENT_VIOLET_CITY_PP_UP

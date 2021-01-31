@@ -1,28 +1,57 @@
-_OakText6::
-	text "Now, what did you"
-	line "say your name was?"
+_RowanText7::
+	text "Tell me, what is"
+	line "your name?"
 	prompt
 
-_OakText7::
-	text "<PLAYER>, are you"
-	line "ready?"
+_RowanText8::
+	text "OK…"
+	line "So, you're <PLAYER>?"
 
-	para "Your very own"
-	line "#MON story is"
+	para "A fine name that"
+	line "is!"
+	prompt
+
+_RowanText9::
+	text "Now this boy here…"
+	line "I beieve he is"
+	cont "your friend."
+	prompt
+
+_RowanText10::
+	text "What is his name?"
+	prompt
+
+_RowanText11::
+	text "All right <PLAYER>,"
+	line "the time has come."
+
+	para "Your very own tale"
+	line "of adventure is"
 	cont "about to unfold."
 
-	para "You'll face fun"
-	line "times and tough"
-	cont "challenges."
+	para "You will meet"
+	line "countless #MON"
+	cont "and people."
 
-	para "A world of dreams"
-	line "and adventures"
+	para "I'm sure that along"
+	line "the way you will"
+	cont "learn many things,"
+	cont "maybe even things"
+	cont "about yourself."
 
-	para "with #MON"
-	line "awaits! Let's go!"
+	para "Now, go on, leap"
+	line "into the world of"
+	cont "#MON!"
+	done
 
-	para "I'll be seeing you"
-	line "later!"
+_RowanTextPlayerNameConfirm::
+	text "So, your name is"
+	line "<PLAYER>?"
+	done
+
+_RowanTextRivalNameConfirm::
+	text "So, his name is"
+	line "<RIVAL>?"
 	done
 
 UnknownText_0x1c40e6::

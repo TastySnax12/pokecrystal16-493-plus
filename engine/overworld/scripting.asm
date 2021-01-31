@@ -236,6 +236,8 @@ ScriptCommandTable:
 	dw Script_loadmonindex               ; aa
 	dw Script_checkmaplockedmons         ; ab
 	dw Script_jumptextsign               ; ac
+	dw Script_settableindex              ; ad
+	dw Script_applymovementtable         ; ae
 
 StartScript:
 	ld hl, wScriptFlags
@@ -2900,4 +2902,51 @@ JumpTextSignScript:
 .set_delay
 	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
+	ret
+
+Script_settableindex:
+; script command 0xad
+; parameters: index
+	call GetScriptByte
+	ld [wScriptTableIndex], a
+	ret
+
+Script_applymovementtable:
+; script command 0xae
+; parameters: object_id, data
+	call GetScriptByte
+	call GetScriptObject
+	ld c, a
+
+	push bc
+	ld a, c
+	farcall SetFlagsForMovement_1
+	pop bc
+
+	push bc
+	call SetFlagsForMovement_2
+	pop bc
+
+	call GetScriptByte
+	ld l, a
+	call GetScriptByte
+	ld h, a
+
+	ld a, [wScriptTableIndex]
+	push bc
+	ld c, a
+	ld b, 0
+	add hl, bc
+	add hl, bc
+	pop bc
+	ld a, [wScriptBank]
+	ld b, a
+	call GetFarHalfword
+
+	call GetMovementData
+	ret c
+
+	ld a, SCRIPT_WAIT_MOVEMENT
+	ld [wScriptMode], a
+	call StopScript
 	ret

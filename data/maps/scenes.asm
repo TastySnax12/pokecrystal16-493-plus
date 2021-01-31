@@ -5,10 +5,11 @@ scene_var: MACRO
 ENDM
 
 MapScenes::
-;	scene_var POKECENTER_2F,                               wPokecenter2FSceneID
-;	scene_var TRADE_CENTER,                                wTradeCenterSceneID
-;	scene_var COLOSSEUM,                                   wColosseumSceneID
-;	scene_var TIME_CAPSULE,                                wTimeCapsuleSceneID
+	scene_var POKECENTER_2F,                               wPokecenter2FSceneID
+	scene_var TRADE_CENTER,                                wTradeCenterSceneID
+	scene_var COLOSSEUM,                                   wColosseumSceneID
+	scene_var TIME_CAPSULE,                                wTimeCapsuleSceneID
+	scene_var PLAYERS_HOUSE_2F,                            wPlayersHouse2FSceneID
 ;	scene_var POWER_PLANT,                                 wPowerPlantSceneID
 ;	scene_var CERULEAN_GYM,                                wCeruleanGymSceneID
 ;	scene_var ROUTE_25,                                    wRoute25SceneID

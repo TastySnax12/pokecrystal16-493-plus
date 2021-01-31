@@ -1,4 +1,8 @@
 DefaultOptions:
+if DEF(_DEBUG)
+	db $c0, $00, $00, $01
+	db $40, $01, $00, $00
+else
 ; wOptions: med text speed
 	db TEXT_DELAY_MED
 ; wSaveFileExists: no
@@ -14,3 +18,4 @@ DefaultOptions:
 
 	db $00
 	db $00
+endc

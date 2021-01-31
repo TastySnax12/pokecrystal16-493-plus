@@ -165,3 +165,8 @@ hSamplePlaying:: db ; ffec
 hSampleVolume:: db ; ffed
 hTimerInterrupt:: db ; ffee
 hMusicStore:: db ; ffef
+
+if DEF(_DEBUG)
+hDebugMenuCursorPos:: db
+hDebugMenuDataBuffer:: ds 8
+endc

@@ -63,7 +63,7 @@ NewGame:
 	ld [wDebugFlags], a
 	call ResetWRAM
 	call NewGame_ClearTileMapEtc
-	call AreYouABoyOrAreYouAGirl
+;	call AreYouABoyOrAreYouAGirl
 	call OakSpeech
 	call InitializeWorld
 	ld a, 1
@@ -643,10 +643,21 @@ Continue_DisplayGameTime:
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	jp PrintNum
 
+INTRO_POKE EQU WOOPER
 OakSpeech:
 	farcall InitClock
 	call RotateFourPalettesLeft
 	call ClearTileMap
+
+	; DEBUG
+	ld hl, wPlayerName
+	ld [hl], "I"
+	inc hl
+	ld [hl], "@"
+	ld a, 1
+	ld [wPlayerGender], a
+	ret
+	; /DEBUG
 
 	ld de, MUSIC_ROUTE_30
 	call PlayMusic
@@ -663,12 +674,12 @@ OakSpeech:
 	call GetSGBLayout
 	call Intro_RotatePalettesLeftFrontpic
 
-	ld hl, OakText1
+	ld hl, RowanText1
 	call PrintText
 	call RotateThreePalettesRight
 	call ClearTileMap
 
-	ld hl, WOOPER
+	ld hl, INTRO_POKE
 	call GetPokemonIDFromIndex
 	ld [wCurSpecies], a
 	ld [wCurPartySpecies], a
@@ -685,9 +696,9 @@ OakSpeech:
 	call GetSGBLayout
 	call Intro_WipeInFrontpic
 
-	ld hl, OakText2
+	ld hl, RowanText2
 	call PrintText
-	ld hl, OakText4
+	ld hl, RowanText4
 	call PrintText
 	call RotateThreePalettesRight
 	call ClearTileMap
@@ -702,8 +713,22 @@ OakSpeech:
 	call GetSGBLayout
 	call Intro_RotatePalettesLeftFrontpic
 
-	ld hl, OakText5
+	ld hl, RowanText5
 	call PrintText
+
+.player_loop
+	call RotateThreePalettesRight
+	call ClearTileMap
+
+	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
+	call GetSGBLayout
+	call Intro_RotatePalettesLeftFrontpic
+
+	ld hl, RowanText6
+	call PrintText
+
+	call ChooseGenderMenu
+
 	call RotateThreePalettesRight
 	call ClearTileMap
 
@@ -715,46 +740,136 @@ OakSpeech:
 	call GetSGBLayout
 	call Intro_RotatePalettesLeftFrontpic
 
-	ld hl, OakText6
+	ld hl, RowanText7
 	call PrintText
 	call NamePlayer
-	ld hl, OakText7
+
+	ld hl, RowanTextPlayerNameConfirm
+	call PrintText
+	call YesNoBox
+	jr c, .player_loop
+
+	ld hl, RowanText8
+	call PrintText
+
+	call RotateThreePalettesRight
+	call ClearTileMap
+
+	xor a
+	ld [wCurPartySpecies], a
+	ld a, RIVAL1
+	ld [wTrainerClass], a
+	call Intro_PrepTrainerPic
+
+	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
+	call GetSGBLayout
+	call Intro_RotatePalettesLeftFrontpic
+
+	ld hl, RowanText9
+	call PrintText
+
+.rival_loop
+	ld hl, RowanText10
+	call PrintText
+	call NameRival
+
+	ld hl, RowanTextRivalNameConfirm
+	call PrintText
+	call YesNoBox
+	jr c, .rival_loop
+
+	call RotateThreePalettesRight
+	call ClearTileMap
+
+	farcall DrawIntroPlayerPic
+
+	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
+	call GetSGBLayout
+	call Intro_RotatePalettesLeftFrontpic
+
+	ld hl, RowanText11
 	call PrintText
 	ret
 
-OakText1:
-	text_far _OakText1
+RowanText1:
+	text_far _RowanText1
 	text_end
 
-OakText2:
-	text_far _OakText2
+RowanText2:
+	text_far _RowanText2
 	text_asm
-	ld hl, WOOPER
+	ld hl, INTRO_POKE
 	call GetPokemonIDFromIndex
 	call PlayMonCry
 	call WaitSFX
-	ld hl, OakText3
+	ld hl, RowanText3
 	ret
 
-OakText3:
-	text_far _OakText3
+RowanText3:
+	text_far _RowanText3
 	text_end
 
-OakText4:
-	text_far _OakText4
+RowanText4:
+	text_far _RowanText4
 	text_end
 
-OakText5:
-	text_far _OakText5
+RowanText5:
+	text_far _RowanText5
 	text_end
 
-OakText6:
-	text_far _OakText6
+RowanText6:
+	text_far _RowanText6
 	text_end
 
-OakText7:
-	text_far _OakText7
+RowanText7:
+	text_far _RowanText7
 	text_end
+
+RowanText8:
+	text_far _RowanText8
+	text_end
+
+RowanText9:
+	text_far _RowanText9
+	text_end
+
+RowanText10:
+	text_far _RowanText10
+	text_end
+
+RowanText11:
+	text_far _RowanText11
+	text_end
+
+RowanTextPlayerNameConfirm:
+	text_far _RowanTextPlayerNameConfirm
+	text_end
+
+RowanTextRivalNameConfirm:
+	text_far _RowanTextRivalNameConfirm
+	text_end
+
+ChooseGenderMenu:
+	ld hl, .MenuHeader
+	call LoadMenuHeader
+	call VerticalMenu
+	call CloseWindow
+	ld a, [wMenuCursorY]
+	dec a
+	ld [wPlayerGender], a
+	ret
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 6, 4, 12, 9
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR | STATICMENU_WRAP | STATICMENU_DISABLE_B ; flags
+	db 2 ; items
+	db "Boy@"
+	db "Girl@"
 
 NamePlayer:
 	farcall MovePlayerPicRight
@@ -816,6 +931,56 @@ StorePlayerName:
 	ld hl, wPlayerName
 	call ByteFill
 	ld hl, wPlayerName
+	ld de, wStringBuffer2
+	call CopyName2
+	ret
+
+NameRival:
+	farcall MovePlayerPicRight
+	farcall ShowRivalNamingChoices
+	ld a, [wMenuCursorY]
+	dec a
+	jr z, .NewName
+	call StoreRivalName
+	farcall ApplyMonOrTrainerPals
+	farcall MovePlayerPicLeft
+	ret
+
+.NewName:
+	ld b, NAME_RIVAL
+	ld de, wRivalName
+	farcall NamingScreen
+
+	call RotateThreePalettesRight
+	call ClearTileMap
+
+	call LoadFontsExtra
+	call WaitBGMap
+
+	xor a
+	ld [wCurPartySpecies], a
+	ld a, RIVAL1
+	ld [wTrainerClass], a
+	call Intro_PrepTrainerPic
+
+	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
+	call GetSGBLayout
+	call RotateThreePalettesLeft
+
+	ld hl, wRivalName
+	ld de, .Barry
+	call InitName
+	ret
+
+.Barry:
+	db "BARRY@@@@@@"
+
+StoreRivalName:
+	ld a, "@"
+	ld bc, NAME_LENGTH
+	ld hl, wRivalName
+	call ByteFill
+	ld hl, wRivalName
 	ld de, wStringBuffer2
 	call CopyName2
 	ret

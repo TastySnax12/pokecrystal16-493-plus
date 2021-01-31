@@ -1497,55 +1497,59 @@ UnknownText_0x1c1cf3::
 	line "on SELECT Button."
 	done
 
-_OakText1::
-	text "Hello! Sorry to"
-	line "keep you waiting!"
+_RowanText1::
+	text "Hello there! It's"
+	line "nice to meet you."
+
+	para "My name is ROWAN."
+	line "However, everyone"
+	cont "just calls me the"
+	cont "#MON PROFESSOR."
 
 	para "Welcome to the"
 	line "world of #MON!"
-
-	para "My name is OAK."
-
-	para "People call me the"
-	line "#MON PROF."
 	prompt
 
-_OakText2::
-	text "This world is in-"
-	line "habited by crea-"
-	cont "tures that we call"
-	cont "#MON.@"
-	text_end
+_RowanText2::
+	text "This world is"
+	line "inhabited by"
+	cont "creatures known"
+	cont "as #MON."
+	prompt
 
-_OakText3::
+_RowanText3::
 	text_waitbutton
 	text_end
 
-	text_end ; unused
+_RowanText4::
+	text "We humans live"
+	line "alongside #MON"
+	cont "as friends."
 
-_OakText4::
-	text "People and #MON"
-	line "live together by"
+	para "At times we play,"
+	line "and at other times"
+	cont "we work together."
 
-	para "supporting each"
-	line "other."
+	para "Some people use"
+	line "their #MON to"
+	cont "battle and develop"
+	cont "closer bonds."
 
-	para "Some people play"
-	line "with #MON, some"
-	cont "battle with them."
+	para "What do I do?"
+
+	para "I study #MON"
+	line "as a profession."
 	prompt
 
-_OakText5::
-	text "But we don't know"
-	line "everything about"
-	cont "#MON yet."
+_RowanText5::
+	text "Now, why don't you"
+	line "tell me a little"
+	cont "about yourself?"
+	prompt
 
-	para "There are still"
-	line "many mysteries to"
-	cont "solve."
-
-	para "That's why I study"
-	line "#MON every day."
+_RowanText6::
+	text "Are you a boy?"
+	line "Or are you a girl?"
 	prompt
 
 _AskRockClimbText::

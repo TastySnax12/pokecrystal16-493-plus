@@ -72,6 +72,34 @@ ShowPlayerNamingChoices:
 
 INCLUDE "data/player_names.asm"
 
+ShowRivalNamingChoices:
+	ld hl, .menu_header
+	call LoadMenuHeader
+	call VerticalMenu
+	ld a, [wMenuCursorY]
+	dec a
+	call CopyNameFromMenu
+	call CloseWindow
+	ret
+
+.menu_header:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 10, TEXTBOX_Y - 1
+	dw .Names
+	db 1 ; ????
+	db 0 ; default option
+
+.Names:
+	db STATICMENU_CURSOR | STATICMENU_PLACE_TITLE | STATICMENU_DISABLE_B ; flags
+	db 5 ; items
+	db "NEW NAME@"
+	db "BARRY@"
+	db "NOLAN@"
+	db "RON@"
+	db "GAVIN@"
+	db 2 ; displacement
+	db " NAME @" ; title
+
 Unreferenced_GetPlayerNameArray:
 	ld hl, wPlayerName
 	ld de, MalePlayerNameArray
