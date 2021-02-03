@@ -469,9 +469,3 @@ ReadMonMenuIcon:
 	ld [wCurIcon], a
 	ld [wCurIcon + 1], a
 	ret
-
-INCLUDE "data/pokemon/menu_icons.asm"
-
-;INCLUDE "data/icon_pointers.asm"
-
-;INCLUDE "gfx/icons.asm"

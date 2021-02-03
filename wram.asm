@@ -280,7 +280,8 @@ wGlobalAnimYOffset:: db
 wGlobalAnimXOffset:: db
 wSpriteAnimsEnd::
 
-	ds 10
+wPartyMenuIconPals:: ds 6
+	ds 4
 
 ; mobile data
 wc3cc:: ds 1
