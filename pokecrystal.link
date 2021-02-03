@@ -65,7 +65,6 @@ ROMX $0e
 ROMX $0f
 	"Battle Core"
 ROMX $10
-	"bank10"
 	"Evolutions and Attacks Pointers"
 	"Evolutions and Attacks 1"
 ROMX $11
@@ -195,7 +194,6 @@ ROMX $46
 ROMX $47
 	"Battle Tower"
 ROMX $48
-	"Pic Pointers"
 	"Pics 1"
 ROMX $49
 	"Unown Pic Pointers"
@@ -291,7 +289,7 @@ ROMX $72
 ROMX $73
 	"Pokedex Entries 129-192"
 ROMX $74
-	"Pokedex Entries 193-251"
+	"Pokedex Entries 193-256"
 ROMX $75
 	"16-bit ID stuff"
 ROMX $77
@@ -310,11 +308,35 @@ ROMX $7e
 	"Crystal Events"
 ROMX $7f
 	"Sound Effects"
-	"Base Data 2"
 	org $7de0
 	"Mobile Stadium 2"
 ROMX $80
 	"Sampled Cries"
+ROMX $81
+	"Pic Pointers"
+	"Base Data 2"
+ROMX $82
+	"Pokemon Names"
+ROMX $83
+	"Pokedex Entries 257-320"
+ROMX $84
+	"Pokedex Entries 321-384"
+ROMX $85
+	"Pokedex Entries 385-448"
+ROMX $86
+	"Pokedex Entries 449-493"
+ROMX $87
+	"bank10"
+ROMX $88
+	"Footprints"
+ROMX $89
+	"Icons 1"
+ROMX $8a
+	"Icons 2"
+ROMX $8b
+	"Icons 3"
+ROMX $8c
+	"Icons 4"
 WRAM0
 	"Stack"
 	"Audio RAM"

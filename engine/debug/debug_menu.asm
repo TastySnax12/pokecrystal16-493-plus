@@ -318,7 +318,7 @@ Debug_Warp:
 	ret
 
 .SpawnTable
-	db SPAWN_N_A
+	db SPAWN_DEBUG
 	db SPAWN_HOME
 	db SPAWN_TWINLEAF
 	db SPAWN_SANDGEM
@@ -361,7 +361,7 @@ endr
 	ret
 
 .LocNames:
-	db "N/A@@@@@@@@@@"
+	db "DEBUG@@@@@@@@"
 	db "HOME@@@@@@@@@"
 	db "TWINLEAF@@@@@"
 	db "SANDGEM@@@@@@"

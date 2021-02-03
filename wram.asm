@@ -264,7 +264,7 @@ ENDU ; c3b4
 wSpriteAnimCount:: db
 wCurSpriteOAMAddr:: db
 
-wCurIcon:: db ; c3b6
+wCurIcon:: dw ; c3b6
 
 wCurIconTile:: db
 wSpriteAnimAddrBackup::
@@ -280,7 +280,7 @@ wGlobalAnimYOffset:: db
 wGlobalAnimXOffset:: db
 wSpriteAnimsEnd::
 
-	ds 11
+	ds 10
 
 ; mobile data
 wc3cc:: ds 1
@@ -2835,7 +2835,7 @@ wPlayerMonSelection:: ds 3
 wdc5f:: db
 wdc60:: db
 
-	ds 18
+;	ds 18
 
 wStepCount:: db ; dc73
 wPoisonStepCount:: db ; dc74
@@ -2849,7 +2849,7 @@ wSafariTimeRemaining:: dw ; dc7a
 
 wPhoneList:: ds CONTACT_LIST_SIZE ; dc7c
 ; dc86
-	ds 23
+;	ds 23
 
 wLuckyNumberShowFlag:: db ; dc9d
 	ds 1
@@ -2910,8 +2910,6 @@ wPartyMonOT:: ds NAME_LENGTH * PARTY_LENGTH ; ddff
 
 wPartyMonNicknames:: ds MON_NAME_LENGTH * PARTY_LENGTH ; de41
 wPartyMonNicknamesEnd::
-
-	ds 22
 
 wPokedexCaught:: flag_array NUM_POKEMON ; de99
 wEndPokedexCaught::

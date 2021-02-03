@@ -7,6 +7,7 @@ ENDM
 SpawnPoints:
 ; entries correspond to SPAWN_* constants
 
+	spawn DEBUG_ROOM,        9, 28
 	spawn PLAYERS_HOUSE_2F,  4,  2
 	spawn TWINLEAF_TOWN,    15, 14
 	spawn SANDGEM_TOWN,      0,  0

@@ -259,7 +259,6 @@ INCLUDE "engine/pokemon/switchpartymons.asm"
 INCLUDE "engine/gfx/load_pics.asm"
 INCLUDE "engine/pokemon/move_mon_wo_mail.asm"
 INCLUDE "data/pokemon/base_stats.asm"
-INCLUDE "data/pokemon/names.asm"
 
 UnknownEggPic::
 ; Another egg pic. This is shifted up a few pixels.
@@ -515,9 +514,7 @@ INCLUDE "engine/tilesets/tileset_anims.asm"
 INCLUDE "engine/events/npc_trade.asm"
 INCLUDE "engine/events/mom_phone.asm"
 
-
 INCLUDE "mobile/mobile_40.asm"
-
 
 SECTION "bank41", ROMX
 
@@ -711,6 +708,30 @@ INCLUDE "engine/events/odd_egg.asm"
 SECTION "Mobile Stadium 2", ROMX
 
 INCBIN "mobile/stadium/stadium2.bin"
+
+SECTION "Pokemon Names", ROMX
+
+INCLUDE "data/pokemon/names.asm"
+
+SECTION "Footprints", ROMX
+Footprints:
+INCLUDE "gfx/footprints.asm"
+
+SECTION "Icons 1", ROMX
+
+INCLUDE "gfx/icons1.asm"
+
+SECTION "Icons 2", ROMX
+
+INCLUDE "gfx/icons2.asm"
+
+SECTION "Icons 3", ROMX
+
+INCLUDE "gfx/icons3.asm"
+
+SECTION "Icons 4", ROMX
+
+INCLUDE "gfx/icons4.asm"
 
 SECTION "16-bit ID stuff", ROMX
 

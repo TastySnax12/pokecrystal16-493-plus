@@ -67,6 +67,7 @@ MAP_NONE   EQU 0
 ; SpawnPoints indexes (see data/maps/spawn_points.asm)
 const_value = -1
 	const SPAWN_N_A
+	const SPAWN_DEBUG
 	const SPAWN_HOME
 	const SPAWN_TWINLEAF
 	const SPAWN_SANDGEM

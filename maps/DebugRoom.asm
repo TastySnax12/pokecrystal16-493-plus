@@ -1,6 +1,7 @@
 	object_const_def ; object_event constants
 	const TESTMAP_EVENT1
 	const TESTMAP_EVENT2
+	const TESTMAP_EVENT3
 
 DebugRoom_MapScripts:
 	db 0 ; scene scripts
@@ -44,6 +45,27 @@ TestMap_Obj2_Script:
 	predef LearnMove
 	ret
 
+TestMap_Obj3_Script:
+	opentext
+	callasm .asm
+	closetext
+	end
+
+.asm
+	ldh a, [$fff0]
+	ld h, a
+	ldh a, [$fff1]
+	ld l, a
+	call GetPokemonIDFromIndex
+	ld [wCurPartySpecies], a
+	ldh a, [$fff2]
+	ld [wCurPartyLevel], a
+	ldh a, [$fff3]
+	ld [wCurItem], a
+	ld b, 0
+	farcall GivePoke
+	ret
+
 DebugRoom_MapEvents:
 	db 0, 0 ; filler
 
@@ -55,7 +77,8 @@ DebugRoom_MapEvents:
 
 	db 0 ; bg events
 
-	db 2 ; object events
+	db 3 ; object events
 	object_event  7,  23, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TestMap_Obj1_Script, -1
 	object_event  10, 23, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TestMap_Obj2_Script, -1
+	object_event  11, 23, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TestMap_Obj3_Script, -1
 

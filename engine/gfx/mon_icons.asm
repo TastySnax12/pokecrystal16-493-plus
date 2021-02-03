@@ -1,16 +1,19 @@
 LoadOverworldMonIcon:
 	ld a, e
 	call ReadMonMenuIcon
-	ld l, a
-	ld h, 0
-	add hl, hl
-	ld de, IconPointers
-	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl]
-	ld b, BANK(Icons)
+	call GetIconBankAddr
+	ld b, a
 	ld c, 8
+;	ld l, a
+;	ld h, 0
+;	add hl, hl
+;	ld de, IconPointers
+;	add hl, de
+;	ld a, [hli]
+;	ld e, a
+;	ld d, [hl]
+;	ld b, BANK(Icons)
+;	ld c, 8
 	ret
 
 LoadMenuMonIcon:
@@ -161,7 +164,6 @@ InitPartyMenuIcon:
 	add hl, de
 	ld a, [hl]
 	call ReadMonMenuIcon
-	ld [wCurIcon], a
 	call GetMemIconGFX
 	ldh a, [hObjectStructIndexBuffer]
 ; y coord
@@ -217,7 +219,6 @@ SetPartyMonIconAnimSpeed:
 NamingScreen_InitAnimatedMonIcon:
 	ld a, [wTempIconSpecies]
 	call ReadMonMenuIcon
-	ld [wCurIcon], a
 	xor a
 	call GetIconGFX
 	depixel 4, 4, 4, 0
@@ -231,7 +232,6 @@ NamingScreen_InitAnimatedMonIcon:
 MoveList_InitAnimatedMonIcon:
 	ld a, [wTempIconSpecies]
 	call ReadMonMenuIcon
-	ld [wCurIcon], a
 	xor a
 	call GetIconGFX
 	ld d, 3 * 8 + 2 ; depixel 3, 4, 2, 4
@@ -246,7 +246,6 @@ MoveList_InitAnimatedMonIcon:
 Trade_LoadMonIconGFX:
 	ld a, [wTempIconSpecies]
 	call ReadMonMenuIcon
-	ld [wCurIcon], a
 	ld a, $62
 	ld [wCurIconTile], a
 	call GetMemIconGFX
@@ -257,7 +256,6 @@ GetSpeciesIcon:
 	push de
 	ld a, [wTempIconSpecies]
 	call ReadMonMenuIcon
-	ld [wCurIcon], a
 	pop de
 	ld a, e
 	call GetIconGFX
@@ -267,20 +265,18 @@ FlyFunction_GetMonIcon:
 	push de
 	ld a, [wTempIconSpecies]
 	call ReadMonMenuIcon
-	ld [wCurIcon], a
 	pop de
 	ld a, e
 	call GetIcon_a
 	ret
 
 Unreferenced_GetMonIcon2:
-	push de
-	ld a, [wTempIconSpecies]
-	call ReadMonMenuIcon
-	ld [wCurIcon], a
-	pop de
-	call GetIcon_de
-	ret
+;	push de
+;	ld a, [wTempIconSpecies]
+;	call ReadMonMenuIcon
+;	pop de
+;	call GetIcon_de
+;	ret
 
 GetMemIconGFX:
 	ld a, [wCurIconTile]
@@ -325,23 +321,48 @@ endr
 
 ; The icons are contiguous, in order and of the same
 ; size, so the pointer table is somewhat redundant.
-	ld a, [wCurIcon]
+	call GetIconBankAddr
+        ld b, a
+        ld c, 8
+        call GetGFXUnlessMobile
+
+        pop hl
+        ret
+
+GetIconBankAddr:
 	push hl
-	ld l, a
-	ld h, 0
-	add hl, hl
-	ld de, IconPointers
+        ld a, [wCurIcon]
+        rlca
+        ld a, [wCurIcon + 1]
+        rla
+        ld l, a
+        ld h, 0
+        ld de, IconBanks
+        add hl, de
+        ld a, [hl]
+        push af
+
+        ld a, [wCurIcon]
+        and $7f
+        ld l, a
+        ld h, 0
+rept 7
+        add hl, hl
+endr
+	ld de, Icons1 ; all icon tables should be aligned to a full bank
 	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl]
-	pop hl
+	ld d, h
+	ld e, l
 
-	lb bc, BANK(Icons), 8
-	call GetGFXUnlessMobile
-
+        pop af
 	pop hl
 	ret
+
+IconBanks:
+	db BANK(Icons1)
+	db BANK(Icons2)
+	db BANK(Icons3)
+	db BANK(Icons4)
 
 GetGFXUnlessMobile:
 	ld a, [wLinkMode]
@@ -438,16 +459,19 @@ ReadMonMenuIcon:
 	cp EGG
 	jr z, .egg
 	call GetPokemonIndexFromID
-	ld de, MonMenuIcons - 1
-	add hl, de
-	ld a, [hl]
+	ld a, l
+	ld [wCurIcon], a
+	ld a, h
+	ld [wCurIcon + 1], a
 	ret
 .egg
-	ld a, ICON_EGG
+	xor a
+	ld [wCurIcon], a
+	ld [wCurIcon + 1], a
 	ret
 
 INCLUDE "data/pokemon/menu_icons.asm"
 
-INCLUDE "data/icon_pointers.asm"
+;INCLUDE "data/icon_pointers.asm"
 
-INCLUDE "gfx/icons.asm"
+;INCLUDE "gfx/icons.asm"
