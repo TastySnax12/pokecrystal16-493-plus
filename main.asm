@@ -265,6 +265,11 @@ UnknownEggPic::
 INCBIN "gfx/unknown/unknown_egg.2bpp.lz"
 
 
+SECTION "Battle Stat Changes", ROMX
+
+INCLUDE "engine/battle/stats.asm"
+
+
 SECTION "Crystal Phone Text", ROMX
 
 INCLUDE "data/phone/text/irwin_caller.asm"
